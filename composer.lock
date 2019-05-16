@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51db6ba60fb4828f1c2ec88c25cc0b24",
+    "content-hash": "2dc42bf16ae31a1a3359ac9ea4f465b2",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1924,6 +1924,37 @@
             "description": "This package provides functionality for using Elasticsearch on top of Neos.ContentRepository.Search",
             "homepage": "http://flowpack.org/",
             "time": "2019-01-31T12:44:15+00:00"
+        },
+        {
+            "name": "flowpack/googleapiclient",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/Flowpack.GoogleApiClient.git",
+                "reference": "d5664337454c87d9cf3fa14e21af36e84e811afe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.GoogleApiClient/zipball/d5664337454c87d9cf3fa14e21af36e84e811afe",
+                "reference": "d5664337454c87d9cf3fa14e21af36e84e811afe",
+                "shasum": ""
+            },
+            "require": {
+                "google/apiclient": "^2.2",
+                "neos/flow": "~5.0 || dev-master"
+            },
+            "type": "neos-package",
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\GoogleApiClient\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Google Api Client provider for Neos Flow",
+            "time": "2019-04-01T10:13:15+00:00"
         },
         {
             "name": "flowpack/listable",
@@ -4239,20 +4270,21 @@
         },
         {
             "name": "neos/googleanalytics",
-            "version": "2.0.7",
+            "version": "dev-task/use-googleapi-package",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-googleanalytics.git",
-                "reference": "b6eda6267c40924a6f159a13e9d677b1f2f6a2f6"
+                "reference": "30f4b36b20eb3ec0b6b0db50dd0f4bfec4c895e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-googleanalytics/zipball/b6eda6267c40924a6f159a13e9d677b1f2f6a2f6",
-                "reference": "b6eda6267c40924a6f159a13e9d677b1f2f6a2f6",
+                "url": "https://api.github.com/repos/neos/neos-googleanalytics/zipball/30f4b36b20eb3ec0b6b0db50dd0f4bfec4c895e0",
+                "reference": "30f4b36b20eb3ec0b6b0db50dd0f4bfec4c895e0",
                 "shasum": ""
             },
             "require": {
-                "google/apiclient": "~2.2.0",
+                "flowpack/googleapiclient": "^1.0",
+                "neos/fusion-afx": "^1.2",
                 "neos/neos": "~3.0 || ~4.0 || dev-master"
             },
             "replace": {
@@ -4337,7 +4369,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "Google Analytics integration for Neos CMS",
-            "time": "2018-10-29T22:11:40+00:00"
+            "time": "2019-05-15T17:33:49+00:00"
         },
         {
             "name": "neos/imagine",
@@ -5171,7 +5203,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Neos.NeosIo",
-                "reference": "23e89738b039ee9bea5aa27803a5db9e6e35270b",
+                "reference": "3204db35690254a1b300ffcfc8690c15b6c7424f",
                 "shasum": null
             },
             "require": {
@@ -5185,7 +5217,7 @@
                 "jonnitto/photoswipe": "^2.1",
                 "neos/form": "^4.2",
                 "neos/fusion-afx": "^1.2",
-                "neos/googleanalytics": "^2.0",
+                "neos/googleanalytics": "^3.0",
                 "neos/marketplace": "^2.0",
                 "neos/media": "^4.3",
                 "neos/neos": "^4.3",
@@ -11014,9 +11046,18 @@
             "time": "2018-12-25T11:19:39+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.0",
+            "alias_normalized": "3.0.0.0",
+            "version": "dev-task/use-googleapi-package",
+            "package": "neos/googleanalytics"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "neos/googleanalytics": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

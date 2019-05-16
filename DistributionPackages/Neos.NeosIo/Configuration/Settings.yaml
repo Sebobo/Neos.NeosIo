@@ -86,3 +86,7 @@ PunktDe:
   CodeView:
     loadCSS: false
     loadJS: true
+
+Flowpack:
+  GoogleApiClient:
+    applicationName: 'Neos.io'

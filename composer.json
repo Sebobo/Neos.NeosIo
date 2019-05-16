@@ -15,6 +15,8 @@
         "neos/neosio-featurelist": "*",
         "neos/neosconio": "*",
 
+        "neos/googleanalytics": "dev-task/use-googleapi-package as 3.0.0",
+
         "flownative/google-cloudstorage": "^4.0",
         "rokka/imagine-vips": "^0.9"
     },
