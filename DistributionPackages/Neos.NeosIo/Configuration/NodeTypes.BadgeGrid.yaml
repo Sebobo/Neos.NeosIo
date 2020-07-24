@@ -1,6 +1,7 @@
 'Neos.NeosIo:BadgeGrid':
   superTypes:
     'Neos.Neos:Content': true
+    Neos.NeosIo:Constraint.Stage: true
   childNodes:
     badges:
       type: 'Neos.Neos:ContentCollection'

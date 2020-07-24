@@ -1,0 +1,18 @@
+Flowpack.SearchPlugin:Search:
+  superTypes:
+    Neos.NeosIo:Constraint.Stage: true
+    Neos.NeosIo:Constraint.MultiColumn: true
+  ui:
+    inspector:
+      groups:
+        search:
+          label: Search
+          icon: search
+  properties:
+    actionNode:
+      type: reference
+      ui:
+        label: 'Search results page'
+        reloadIfChanged: true
+        inspector:
+          group: search

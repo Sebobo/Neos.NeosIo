@@ -1,0 +1,14 @@
+prototype(Flowpack.SearchPlugin:Search) {
+    @context.actionNode = Neos.Fusion:Case {
+        fromProperty {
+            condition = ${q(node).property('actionNode') != null}
+            renderer = ${q(node).property('actionNode')}
+        }
+        default {
+            condition = true
+            renderer = ${documentNode}
+        }
+    }
+
+    searchQuery = ${this.searchTerm ? Search.query(site).fulltext(this.searchTerm).nodeType('Neos.Neos:Document') : null}
+}

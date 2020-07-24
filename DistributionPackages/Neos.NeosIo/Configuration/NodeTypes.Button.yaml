@@ -7,6 +7,7 @@
   superTypes:
     'Neos.Neos:Content': true
     'Neos.NodeTypes:LinkMixin': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: Button
     icon: icon-link

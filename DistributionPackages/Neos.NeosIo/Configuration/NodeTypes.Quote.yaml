@@ -6,6 +6,7 @@
 'Neos.NeosIo:Quote':
   superTypes:
     'Neos.Neos:Content': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: Quote
     icon: icon-quote-left

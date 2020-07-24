@@ -9,18 +9,6 @@ root {
     }
 }
 
-prototype(Neos.MarketPlace:RepositoryStorage) {
-    @cache {
-        entryIdentifier {
-            searchQuery = ${MarketCaching.queryCacheKey(request.arguments.search)}
-            searchPagination = ${MarketCaching.paginationCacheKey(request)}
-        }
-
-        maximumLifetime = ${String.isBlank(request.arguments.search) ? '86400' : '3600'}
-    }
-}
-
-prototype(Neos.MarketPlace:Search) >
 prototype(Neos.MarketPlace:Search) < prototype(Flowpack.SearchPlugin:Search) {
     templatePath = 'resource://Neos.MarketPlace/Private/Templates/NodeTypes/Search.html'
 
@@ -35,32 +23,21 @@ prototype(Neos.MarketPlace:Search) < prototype(Flowpack.SearchPlugin:Search) {
         maximumNumberOfLinks = 5
     }
 
-    @context.actionNode = Neos.MarketPlace:ClosestRepositoryStorageNodeQuery
+    @context.actionNode.default.renderer = Neos.MarketPlace:ClosestRepositoryStorageNodeQuery
 
     hasSearchQuery = ${String.isBlank(request.arguments.search) ? false : true}
+    query = ${MarketPlaceSearch.query(actionNode)}
 
-    query = ${MarketPlaceSearch.query(documentNode)}
+    query.@process {
+        nodeType = ${value.nodeType('Neos.MarketPlace:Package')}
+        fulltext = ${this.hasSearchQuery ? value.fulltext('*' + String.replace(this.searchTerm, '"', '') + '*') : value}
+        sort = ${this.hasSearchQuery ? value : value.sortDesc('lastActivity')}
+        log = ${value.log('marketplace')}
+    }
 
-    query.@process.nodeType = ${value.nodeType('Neos.MarketPlace:Package')}
-
-    query.@process.fulltext = ${this.hasSearchQuery ? value.fulltext('*' + String.replace(this.searchTerm, '"', '') + '*') : value}
-
-    query.@process.sort = ${this.hasSearchQuery ? value : value.sortDesc('lastActivity')}
-
-    query.@process.log = ${value.log('marketplace')}
-
-    showResult = ${true}
-
+    showResult = ${q(node).property('hideResults') != true}
     searchQuery = ${this.query}
     totalSearchResults = ${this.query.execute().count()}
-
-    prototype(Flowpack.SearchPlugin:Search.Form) {
-        templatePath = 'resource://Neos.MarketPlace/Private/Templates/NodeTypes/Search.Form.html'
-
-        actionUri = Neos.Neos:NodeUri {
-            node = ${actionNode}
-        }
-    }
 
     searchResultRenderer {
         attributes {
@@ -70,17 +47,21 @@ prototype(Neos.MarketPlace:Search) < prototype(Flowpack.SearchPlugin:Search) {
 
     @cache {
         mode = 'cached'
-
         entryIdentifier {
-            documentNode = ${documentNode}
+            node = ${node}
             searchQuery = ${MarketCaching.queryCacheKey(request.arguments.search)}
             searchPagination = ${MarketCaching.paginationCacheKey(request)}
         }
-
         maximumLifetime = ${String.isBlank(request.arguments.search) ? '86400' : '3600'}
-
         entryTags {
-            1 = ${'Node_' + documentNode.identifier}
+            node = ${Neos.Caching.nodeTag(node)}
         }
     }
+}
+
+prototype(Flowpack.SearchPlugin:Search.Form) {
+    actionUri = Neos.Neos:NodeUri {
+        node = ${actionNode || documentNode}
+    }
+    templatePath = 'resource://Neos.MarketPlace/Private/Templates/NodeTypes/Search.Form.html'
 }

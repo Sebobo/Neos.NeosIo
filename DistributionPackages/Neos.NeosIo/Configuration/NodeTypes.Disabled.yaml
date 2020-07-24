@@ -1,8 +1,5 @@
 ##
 # Disabled node types which are not used
 #
-'Flowpack.SearchPlugin:Search':
-  abstract: true
-
 'Neos.Neos:PluginView':
   abstract: true

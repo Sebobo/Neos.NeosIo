@@ -6,6 +6,7 @@
 'Neos.NeosIo:ChoiceButtons':
   superTypes:
     'Neos.Neos:Content': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: 'Choice Button-Group'
     icon: icon-link

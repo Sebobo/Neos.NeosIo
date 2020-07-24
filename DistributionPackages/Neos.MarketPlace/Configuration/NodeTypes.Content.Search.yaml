@@ -1,0 +1,32 @@
+Neos.MarketPlace:Search:
+  superTypes:
+    Neos.Neos:Content: true
+    Flowpack.SearchPlugin:Search: true
+    Neos.NeosIo:Constraint.Stage: true
+    Neos.NeosIo:Constraint.MultiColumn: true
+  ui:
+    label: 'Marketplace Search'
+    inspector:
+      groups:
+        search:
+          label: Search
+          icon: search
+  properties:
+    actionNode:
+      type: reference
+      ui:
+        label: 'Marketplace search page'
+        reloadIfChanged: true
+        inspector:
+          group: search
+          editorOptions:
+            nodeTypes:
+              - Neos.MarketPlace:RepositoryStorage
+    hideResults:
+      type: boolean
+      ui:
+        label: 'Hide results'
+        reloadIfChanged: true
+        inspector:
+          group: search
+

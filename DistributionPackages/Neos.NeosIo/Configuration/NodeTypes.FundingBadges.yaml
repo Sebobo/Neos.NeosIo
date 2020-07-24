@@ -1,7 +1,7 @@
-
 'Neos.NeosIo:FundingBadges':
   superTypes:
     'Neos.Neos:Content': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: 'Sold badges'
     group: plugins

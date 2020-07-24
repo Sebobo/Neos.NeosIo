@@ -60,6 +60,7 @@
           'Neos.NeosIo:Youtube': TRUE
           'Neos.NeosIo:VideoEmbed': TRUE
           'PunktDe.CodeView:Code': true
+          Neos.NeosIo:Constraint.MultiColumn: true
     column1:
       constraints: *twoColumnConstraints
 
@@ -102,20 +103,21 @@
     column0:
       constraints: &threeColumnConstraints
         nodeTypes:
-          '*': FALSE
-          'Neos.NodeTypes:Text': TRUE
-          'Neos.NodeTypes:Image': TRUE
-          'Neos.NodeTypes:TextWithImage': TRUE
-          'Neos.NodeTypes:Headline': TRUE
-          'Neos.NodeTypes:ContentReferences': TRUE
-          'Neos.NeosIo:Box': TRUE
+          '*': false
+          'Neos.NodeTypes:Text': true
+          'Neos.NodeTypes:Image': true
+          'Neos.NodeTypes:TextWithImage': true
+          'Neos.NodeTypes:Headline': true
+          'Neos.NodeTypes:ContentReferences': true
+          'Neos.NeosIo:Box': true
           'Neos.NeosIo:CountUp': true
-          'Neos.NeosIo:Button': TRUE
-          'Neos.NeosIo:Teaser': TRUE
-          'Neos.NeosIo:ImageTeaser': TRUE
-          'Neos.NeosIo:Icon': TRUE
-          'Neos.NeosIo:Youtube': TRUE
-          'Neos.NeosIo:VideoEmbed': TRUE
+          'Neos.NeosIo:Button': true
+          'Neos.NeosIo:Teaser': true
+          'Neos.NeosIo:ImageTeaser': true
+          'Neos.NeosIo:Icon': true
+          'Neos.NeosIo:Youtube': true
+          'Neos.NeosIo:VideoEmbed': true
+          Neos.NeosIo:Constraint.MultiColumn: true
     column1:
       constraints: *threeColumnConstraints
     column2:
@@ -165,6 +167,7 @@
           'Neos.NeosIo:CountUp': true
           'Neos.NeosIo:Button': TRUE
           'Neos.NeosIo:Icon': TRUE
+          Neos.NeosIo:Constraint.MultiColumn: true
     column1:
       constraints: *fourColumnConstraints
     column2:

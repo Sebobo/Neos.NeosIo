@@ -1,7 +1,7 @@
-
 'Neos.NeosIo:Youtube':
   superTypes:
     'Neos.Neos:Content': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: Youtube
     icon: icon-youtube

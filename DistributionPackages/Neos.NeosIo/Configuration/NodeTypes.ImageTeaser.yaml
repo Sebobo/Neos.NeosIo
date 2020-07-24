@@ -10,6 +10,7 @@
     'Neos.NodeTypes:ImageMixin': true
     'Neos.NodeTypes:LinkMixin': true
     'Neos.NodeTypes:TextMixin': true
+    Neos.NeosIo:Constraint.Stage: true
   ui:
     label: 'Teaser with image'
     icon: icon-th-large

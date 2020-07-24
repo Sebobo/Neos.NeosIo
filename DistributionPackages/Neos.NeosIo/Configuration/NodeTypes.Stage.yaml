@@ -21,17 +21,7 @@
           'Neos.NodeTypes:Headline': true
           'Neos.NodeTypes:Html': true
           'Neos.NodeTypes:ContentReferences': true
-          'Neos.NeosIo:Box': true
-          'Neos.NeosIo:Button': true
-          'Neos.NeosIo:ButtonDimensionAware': true
-          'Neos.NeosIo:ChoiceButtons': true
-          'Neos.NeosIo:Quote': true
-          'Neos.NeosIo:SemanticSection': true
-          'Neos.NeosIo:Youtube': true
-          'Neos.NeosIo:FundingBadges': true
-          'Neos.NeosIo:BadgeGrid': true
-          'Neos.NeosIo:ImageTeaser': true
-          'Neos.NeosIo.FeatureList:FeatureList': true
+          Neos.NeosIo:Constraint.Stage: true
   ui:
     label: Stage
     icon: icon-tasks

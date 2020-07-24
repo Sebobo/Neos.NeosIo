@@ -25,4 +25,13 @@ prototype(Neos.MarketPlace:RepositoryStorage) < prototype(Neos.MarketPlace:Defau
             }
         }
     }
+
+    @cache {
+        entryIdentifier {
+            searchQuery = ${MarketCaching.queryCacheKey(request.arguments.search)}
+            searchPagination = ${MarketCaching.paginationCacheKey(request)}
+        }
+
+        maximumLifetime = ${String.isBlank(request.arguments.search) ? '86400' : '3600'}
+    }
 }
